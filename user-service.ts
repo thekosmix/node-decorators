@@ -1,5 +1,5 @@
-import {cacheable} from './cache';
-import {loggable} from './log';
+import {Cacheable} from './cache';
+import {Loggable} from './log';
 
 class UserService {
 
@@ -7,15 +7,15 @@ class UserService {
 
     initialise(){
          this.userDict = new Map<string, string>([
-            ["a", "anand"],
-            ["b", "bairwa"],
+            ["a", "apple"],
+            ["b", "ball"],
             ["c", "cat"]
         ]);
     }
   
-    @cacheable()
-    @loggable(true, true)
-    get(id:string) {
+    @Loggable(true, true)
+    @Cacheable()
+    getUser(id:string) {
         console.log("Getting value from method")
         return this.userDict.get(id)
     }
@@ -23,8 +23,8 @@ class UserService {
   
   const us = new UserService()
   us.initialise();
-  console.log(us.get("a"))
-  console.log(us.get('b'))
-  console.log(us.get('c'))
-  console.log(us.get('a'))
-  console.log(us.get('b'))
+  console.log(us.getUser("a"))
+  console.log(us.getUser('b'))
+  console.log(us.getUser('c'))
+  console.log(us.getUser('a'))
+  console.log(us.getUser('b'))

@@ -1,8 +1,5 @@
 {
-    "compilerOptions": {
-      "target": "ES6"
-    },
-    "include": [
-      "*.ts"
-    ]
+  "compilerOptions": {
+    "target": "ES2020"
   }
+}

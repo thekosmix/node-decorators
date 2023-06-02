@@ -1,6 +1,6 @@
 var redisClient = new Map();  
 
-export function cacheable() {
+export function Cacheable() {
     return function(target: Function, context) {
         if (context.kind === "method") {
             return function (...args: any[]) {
