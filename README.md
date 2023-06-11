@@ -11,6 +11,7 @@ A Decorator is a special kind of declaration that can be attached to a class dec
 ## Why use Decorators 
 1. Abstract out redundant code 
 2. Keep business logic clean
+3. Improve developer productivity
 
 Look at this basic example
 
