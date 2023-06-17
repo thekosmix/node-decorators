@@ -5,26 +5,20 @@ class UserService {
 
     userDict: {}
 
-    initialise(){
-        const a = ["complex", "array"]
-        const b = {
-            key1: "complex",
-            key2: "map",
-            key3: {
-                subKey1: "complex",
-                subKey2: "object"
-            }
+    constructor(){
+        this.userDict = {
+            a: ["complex", "array"],
+            b: {
+                key1: "complex",
+                key2: "map",
+                key3: {
+                    subKey1: "complex",
+                    subKey2: "object"
+                }
+            },
+            c: "complex string",
+            d: 5
         }
-        const c = "complex string"
-        const d = 5
-                
-         this.userDict = {
-            a: a,
-            b: b,
-            c: c,
-            d: d
-         }
-
     }
   
     @Cacheable()
@@ -33,22 +27,7 @@ class UserService {
         console.log("Getting value from method")
         return this.userDict[id]
     }
+
   }
-  
-  const us = new UserService()
-  us.initialise();
-  console.log(us.getUser("a"))
-  console.log()
-  console.log(us.getUser('b'))
-  console.log()
-  console.log(us.getUser('c'))
-  console.log()
-  console.log(us.getUser('d'))
-  console.log()
-  console.log(us.getUser('a'))
-  console.log()
-  console.log(us.getUser('b'))
-  console.log()
-  console.log(us.getUser('c'))
-  console.log()
-  console.log(us.getUser('d'))
+
+  export { UserService }

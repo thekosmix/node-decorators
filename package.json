@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc user-service.ts",
-    "start": "ts-node user-service.ts"
+    "build": "tsc index.ts",
+    "start": "ts-node index.ts"
   },
   "keywords": [],
   "author": "",

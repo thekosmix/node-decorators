@@ -1,12 +1,28 @@
 import * as NodeCache from 'node-cache';
-const cache = new NodeCache( { stdTTL: 100, checkperiod: 120 } );
 
-//const cache = {};  
+const defaultCacheOptions = {
+    stdTTL: 100, 
+    checkperiod: 120
+}
 
-export function Cacheable() {
+const cacheBuckets = {
+    
+}
+
+function getCacheBucket(bucket:string = "default"): NodeCache {
+    var cache = cacheBuckets[bucket]
+    if(!cache){
+        cache = new NodeCache( defaultCacheOptions );
+        cacheBuckets[bucket] = cache
+    }
+    return cache;
+}
+
+export function Cacheable(bucket?:string) {
     return function(target: Function, context) {    
         if (context.kind === "method") {
             return function (...args: any[]) {
+                var cache = getCacheBucket(bucket)
                 var key = args.join("-")
                 var value = cache[key]
                 if (value) {
@@ -20,4 +36,6 @@ export function Cacheable() {
             }
         }
     }
-  }
+}
+
+export {cacheBuckets}
