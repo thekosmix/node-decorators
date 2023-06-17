@@ -14,5 +14,8 @@
     "@types/node": "^20.2.5",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "node-cache": "^5.1.2"
   }
 }
