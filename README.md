@@ -47,6 +47,10 @@ const getUsernameById(String userId){
 
 ## How to use this project
 ```
+npm -v //6.14.15
+node -v //v14.18.2
+```
+```
 git clone https://github.com/thekosmix/node-decorators
 cd node-decorators
 npm i
