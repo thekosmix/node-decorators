@@ -1,11 +1,10 @@
 import { Cacheable } from '../decorators/cache';
 import { Loggable } from '../decorators/log';
 import { Length } from '../decorators/length';
-import { log } from 'console';
 
 class UserService {
 
-//    @Length(1,10)
+    @Length(1,10)
     serviceID: string
 
     userDict: {}
