@@ -1,6 +1,6 @@
-import {UserService} from './user-service';
-import {CalculatorService} from './calculator-service';
-import {cacheBuckets} from './cache'
+import {UserService} from './tests/user-service';
+import {CalculatorService} from './tests/calculator-service';
+import {cacheBuckets} from './decorators/cache'
 
 
 const us = new UserService()

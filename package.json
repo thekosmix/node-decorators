@@ -1,15 +1,19 @@
 {
   "name": "node-annotations",
   "version": "1.0.0",
-  "description": "",
+  "description": "A utility package of different node decorators like caching, logging, validations",
   "main": "index.js",
   "scripts": {
     "build": "tsc index.ts",
     "start": "ts-node index.ts"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thekosmix/node-decorators"
+  },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Siddharth Kumar",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.2.5",
     "ts-node": "^10.9.1",

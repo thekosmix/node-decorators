@@ -1,5 +1,5 @@
-import {Cacheable} from './cache';
-import {Loggable} from './log';
+import {Cacheable} from '../decorators/cache';
+import {Loggable} from '../decorators/log';
 
 class UserService {
 
