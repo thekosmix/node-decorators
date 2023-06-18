@@ -1,11 +1,17 @@
-import {Cacheable} from '../decorators/cache';
-import {Loggable} from '../decorators/log';
+import { Cacheable } from '../decorators/cache';
+import { Loggable } from '../decorators/log';
+import { Length } from '../decorators/length';
+import { log } from 'console';
 
 class UserService {
 
+//    @Length(1,10)
+    serviceID: string
+
     userDict: {}
 
-    constructor(){
+    constructor(serviceID: string) {
+        this.serviceID = serviceID;
         this.userDict = {
             a: ["complex", "array"],
             b: {
@@ -20,14 +26,14 @@ class UserService {
             d: 5
         }
     }
-  
-    @Cacheable()
+
     @Loggable(true, true)
-    getUser(id:string) {
+    @Cacheable()
+    getUser(id: string) {
         console.log("Getting value from method")
         return this.userDict[id]
     }
 
-  }
+}
 
-  export { UserService }
+export { UserService }

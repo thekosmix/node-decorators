@@ -12,6 +12,10 @@ export function Loggable(logRequest: boolean = false, logResponse: boolean = tru
                 if(logResponse){
                     logStr = logStr.concat(" - Response: ").concat(JSON.stringify(response))
                 }
+
+                if(logArgs.length){
+                    logStr = logStr.concat(" - Addional Info: ").concat(logArgs.join(" "))
+                }
                 
                 console.log(logStr)
                 return response

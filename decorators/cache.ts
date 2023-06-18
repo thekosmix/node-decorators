@@ -12,14 +12,14 @@ const cacheBuckets = {
 function getCacheBucket(bucket:string = "default"): NodeCache {
     var cache = cacheBuckets[bucket]
     if(!cache){
-        cache = new NodeCache( defaultCacheOptions );
+        cache = new NodeCache( defaultCacheOptions )
         cacheBuckets[bucket] = cache
     }
     return cache;
 }
 
 export function Cacheable(bucket?:string) {
-    return function(target: Function, context) {    
+    return function(target: any, context) {    
         if (context.kind === "method") {
             return function (...args: any[]) {
                 var cache = getCacheBucket(bucket)
@@ -32,10 +32,8 @@ export function Cacheable(bucket?:string) {
                     value = target.apply(this, args)
                     cache[key] = value
                 }
-                return value //.toString()
+                return value
             }
         }
     }
 }
-
-export {cacheBuckets}
