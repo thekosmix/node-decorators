@@ -1,5 +1,5 @@
-import {UserService} from './tests/user-service';
-import {CalculatorService} from './tests/calculator-service';
+import {UserService} from './tests/user-service.js';
+import {CalculatorService} from './tests/calculator-service.js';
 
 const us = new UserService("user-123")
 console.log(us.getUser("a"))

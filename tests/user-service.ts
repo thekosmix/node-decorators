@@ -1,6 +1,6 @@
-import { Cache } from '../decorators/cache';
-import { Log } from '../decorators/log';
-import { Length } from '../decorators/length';
+import { Cache } from '../decorators/cache.js';
+import { Log } from '../decorators/log.js';
+import { Length } from '../decorators/length.js';
 
 class UserService {
 

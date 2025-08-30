@@ -1,5 +1,5 @@
-import { Cache } from '../decorators/cache';
-import { Log } from '../decorators/log';
+import { Cache } from '../decorators/cache.js';
+import { Log } from '../decorators/log.js';
 
 class CalculatorService {
 

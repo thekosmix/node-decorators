@@ -1,25 +1,27 @@
 export function Log(logRequest: boolean = false, logResponse: boolean = true, ...logArgs: any[]) {
-    return function(target: Function, context) {
-        if (context.kind === "method") {
-            return function (...args: any[]) {
-                var logStr = new Date().toISOString().concat(" - ").concat(target.name)
-                if(logRequest) {
-                    logStr = logStr.concat(" - Request: ").concat(...args)
-                }
+    return function(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+        const originalMethod = descriptor.value;
 
-                var response = target.apply(this, args)
-                
-                if(logResponse){
-                    logStr = logStr.concat(" - Response: ").concat(JSON.stringify(response))
-                }
-
-                if(logArgs.length){
-                    logStr = logStr.concat(" - Addional Info: ").concat(logArgs.join(" "))
-                }
-                
-                console.log(logStr)
-                return response
+        descriptor.value = function (...args: any[]) {
+            var logStr = new Date().toISOString().concat(" - ").concat(propertyKey)
+            if(logRequest) {
+                logStr = logStr.concat(" - Request: ").concat(...args)
             }
+
+            var response = originalMethod.apply(this, args)
+            
+            if(logResponse){
+                logStr = logStr.concat(" - Response: ").concat(JSON.stringify(response))
+            }
+
+            if(logArgs.length){
+                logStr = logStr.concat(" - Addional Info: ").concat(logArgs.join(" "))
+            }
+            
+            console.log(logStr)
+            return response
         }
+
+        return descriptor;
     }
   }
