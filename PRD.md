@@ -6,9 +6,9 @@
 
 ## 2. Features
 
-### 2.1. @Cacheable
+### 2.1. @Cache
 
-The `@Cacheable` decorator is used to cache the result of a method.
+The `@Cache` decorator is used to cache the result of a method.
 
 **Requirements:**
 
@@ -18,9 +18,9 @@ The `@Cacheable` decorator is used to cache the result of a method.
 *   If a bucket is not specified, a default bucket shall be used.
 *   The cache shall have a default TTL (Time To Live) and check period.
 
-### 2.2. @Loggable
+### 2.2. @Log
 
-The `@Loggable` decorator is used to log information about a method's execution.
+The `@Log` decorator is used to log information about a method's execution.
 
 **Requirements:**
 
@@ -40,15 +40,15 @@ The `@Length` decorator is used to validate the length of a class property.
 *   The decorator shall validate the maximum length of the property's value.
 *   An error shall be thrown if the length constraints are not met.
 
-## 3. Future Features (from README)
-
-### 3.1. @Async 
+### 2.4. @Async 
 *   Async execution decorator.
 *   Once a method is decorated with `@Async` decorator, the method should execute in async manner.
 
-### 3.2. @Rest
+### 2.5. @Rest
 *   Decorator to expose a function as an API endpoint.
 *   Once a method gets decorated with `@Rest` it should be exposed aa an API endpoint with method parrams as request params or body based on method name
     *   If the definition of the method is getResource(Param1, Param2), it should be exposed as /api/resouce?param1=param&param2=anotherparam with `GET` http method
     *   If the definition of the method is addResource/updateResource(Param1, Param2), it should be exposed as /api/resouce with `POST` http method with requestBody as `{"param1": param, "param2": anotherparam}`
     *   If the definition of the method is deleteResource/removeResource(Param1, Param2), it should be exposed as /api/resouce with `DELETE` http method with requestBody as `{"param1": param, "param2": anotherparam}`
+
+## 3. Future Features (from README)

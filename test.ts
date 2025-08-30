@@ -1,6 +1,8 @@
 import {UserService} from './tests/user-service.js';
 import {CalculatorService} from './tests/calculator-service.js';
 
+
+const us_temp = new UserService("user-123-random-to-increase-size")
 const us = new UserService("user-123")
 console.log(us.getUser("a"))
 console.log(us.getUser('b'))
