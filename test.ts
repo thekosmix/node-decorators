@@ -1,37 +1,22 @@
-function Min(limit: number) {
-    return function(target: Object, propertyKey: string) { 
-      let value : string;
-      const getter = function() {
-        return value;
-      };
-      const setter = function(newVal: string) {
-         if(newVal.length < limit) {
-          Object.defineProperty(target, 'errors', {
-            value: `Your password should be bigger than ${limit}`
-          });
-        }
-        else {
-          value = newVal;
-        }      
-      }; 
-      Object.defineProperty(target, propertyKey, {
-        get: getter,
-        set: setter
-      }); 
-    }
-  }
+import {UserService} from './tests/user-service';
+import {CalculatorService} from './tests/calculator-service';
 
-  class User {
-    username: string;
-    @Min(8)
-    password: string;
-    constructor(username: string, password: string){
-        this.username = username;
-        this.password = password;
-    }    
-  }
+const us = new UserService("user-123")
+console.log(us.getUser("a"))
+console.log(us.getUser('b'))
+console.log(us.getUser('c'))
+console.log(us.getUser('d'))
+console.log(us.getUser('a'))
+console.log(us.getUser('b'))
+console.log(us.getUser('c'))
+console.log(us.getUser('d'))
 
+console.log()
 
-  let danyUser = new User("dany", "pass");
-  console.log(danyUser);
-  console.log(danyUser.errors);
+const cals = new CalculatorService("user-456");
+console.log(cals.calculator("add", 1, 2, 3, 4))
+console.log(cals.calculator("multiply", 1, 2, 3, 4))
+console.log(cals.calculator("add", 1, 2, 3, 4))
+console.log(cals.calculator("multiply", 1, 2, 3, 4))
+
+console.log()

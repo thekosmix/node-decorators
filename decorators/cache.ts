@@ -18,7 +18,7 @@ function getCacheBucket(bucket:string = "default"): NodeCache {
     return cache;
 }
 
-export function Cacheable(bucket?:string) {
+export function Cache(bucket?:string) {
     return function(target: any, context) {    
         if (context.kind === "method") {
             return function (...args: any[]) {

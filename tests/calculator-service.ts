@@ -1,5 +1,5 @@
-import { Cacheable } from '../decorators/cache';
-import { Loggable } from '../decorators/log';
+import { Cache } from '../decorators/cache';
+import { Log } from '../decorators/log';
 
 class CalculatorService {
 
@@ -16,8 +16,8 @@ class CalculatorService {
     divide: (...numbers: number[]) => numbers.reduce((a, b) => a / b),
   }
 
-  @Cacheable("calc")
-  @Loggable(true, true, "calculator")
+  @Cache("calc")
+  @Log(true, true, "calculator")
   calculator(operation: string, ...numbers: number[]) {
     if (typeof operation !== "string") {
       throw new Error("Invalid operation");

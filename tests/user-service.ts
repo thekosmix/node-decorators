@@ -1,5 +1,5 @@
-import { Cacheable } from '../decorators/cache';
-import { Loggable } from '../decorators/log';
+import { Cache } from '../decorators/cache';
+import { Log } from '../decorators/log';
 import { Length } from '../decorators/length';
 
 class UserService {
@@ -26,8 +26,8 @@ class UserService {
         }
     }
 
-    @Loggable(true, true)
-    @Cacheable()
+    @Log(true, true)
+    @Cache()
     getUser(id: string) {
         console.log("Getting value from method")
         return this.userDict[id]

@@ -1,4 +1,4 @@
-export function Loggable(logRequest: boolean = false, logResponse: boolean = true, ...logArgs: any[]) {
+export function Log(logRequest: boolean = false, logResponse: boolean = true, ...logArgs: any[]) {
     return function(target: Function, context) {
         if (context.kind === "method") {
             return function (...args: any[]) {
