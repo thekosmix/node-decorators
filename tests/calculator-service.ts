@@ -1,35 +1,33 @@
-import { Cache } from '../decorators/cache.js';
-import { Log } from '../decorators/log.js';
+import { Cache } from '../decorators/cache';
+import { Log } from '../decorators/log';
 
 class CalculatorService {
+  serviceID: string;
 
-  serviceID: string
-
-  constructor(serviceID: string){
-    this.serviceID = serviceID
+  constructor(serviceID: string) {
+    this.serviceID = serviceID;
   }
 
-  operations = {
+  operations: Record<string, (...numbers: number[]) => number> = {
     add: (...numbers: number[]) => numbers.reduce((a, b) => a + b),
     subtract: (...numbers: number[]) => numbers.reduce((a, b) => a - b),
     multiply: (...numbers: number[]) => numbers.reduce((a, b) => a * b),
     divide: (...numbers: number[]) => numbers.reduce((a, b) => a / b),
-  }
+  };
 
-  @Cache("calc")
-  @Log(true, true, "calculator")
+  @Cache('calc')
+  @Log(true, true, 'calculator')
   calculator(operation: string, ...numbers: number[]) {
-    if (typeof operation !== "string") {
-      throw new Error("Invalid operation");
+    if (typeof operation !== 'string') {
+      throw new Error('Invalid operation');
     }
 
     if (!this.operations.hasOwnProperty(operation)) {
-      throw new Error("Invalid operation");
+      throw new Error('Invalid operation');
     }
 
     return this.operations[operation](...numbers);
   }
-
 }
 
-export { CalculatorService }
+export { CalculatorService };

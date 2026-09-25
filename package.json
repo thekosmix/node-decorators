@@ -1,27 +1,77 @@
 {
-  "name": "node-annotations",
+  "name": "@thekosmix/node-decorators",
   "version": "1.0.0",
-  "description": "A utility package of different node decorators like caching, logging, validations",
-  "main": "index.js",
-  "scripts": {
-    "build": "tsc index.ts",
-    "start": "ts-node index.ts"
+  "description": "A production-grade Spring-Boot-inspired TypeScript decorator suite for caching (Memory & Redis), logging, resiliency, metrics, and API exposure.",
+  "keywords": [
+    "decorators",
+    "spring-boot",
+    "cache",
+    "redis",
+    "logging",
+    "retry",
+    "timeout",
+    "ratelimit",
+    "metrics",
+    "typescript"
+  ],
+  "homepage": "https://github.com/thekosmix/node-decorators#readme",
+  "bugs": {
+    "url": "https://github.com/thekosmix/node-decorators/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/thekosmix/node-decorators"
+    "url": "git+https://github.com/thekosmix/node-decorators.git"
   },
-  "keywords": [],
-  "author": "Siddharth Kumar",
   "license": "MIT",
-  "devDependencies": {
-    "@types/express": "^5.0.3",
-    "@types/node": "^20.2.5",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.0.4"
+  "author": "Siddharth Kumar",
+  "type": "commonjs",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "directories": {
+    "test": "tests"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build && npm test"
   },
   "dependencies": {
     "express": "^5.1.0",
-    "node-cache": "^5.1.2"
-  }
+    "node-cache": "^5.1.2",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.16.2",
+    "@types/express": "^5.0.3",
+    "@types/ioredis-mock": "^8.2.8",
+    "@types/node": "^22.20.4",
+    "ioredis": "^5.11.1",
+    "ioredis-mock": "^8.13.1",
+    "ts-node": "^10.9.1",
+    "tsup": "^8.5.1",
+    "typescript": "^5.0.4",
+    "vitest": "^5.0.2"
+  },
+  "peerDependencies": {
+    "ioredis": "^5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "ioredis": {
+      "optional": true
+    }
+  },
+  "module": "./dist/index.mjs"
 }
