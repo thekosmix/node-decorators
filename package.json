@@ -1,6 +1,6 @@
 {
   "name": "@thekosmix/node-decorators",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "A production-grade Spring-Boot-inspired TypeScript decorator suite for caching (Memory & Redis), logging, resiliency, metrics, and API exposure.",
   "keywords": [
     "decorators",

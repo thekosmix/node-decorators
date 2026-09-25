@@ -26,6 +26,10 @@ export class RedisCacheStore implements ICacheStore {
     this.defaultTTL = options?.defaultTTL;
   }
 
+  getClient(): MinimalRedisClient {
+    return this.client;
+  }
+
   private buildKey(key: string, bucket: string = 'default'): string {
     return `${this.keyPrefix}${bucket}:${key}`;
   }

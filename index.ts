@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 
-// Decorators
+// Core Decorators
 export { Cache, CacheEvict, CachePut } from './decorators/cache';
 export { Log } from './decorators/log';
 export { Retry } from './decorators/retry';
@@ -16,6 +16,28 @@ export { Length } from './decorators/length';
 export { Async } from './decorators/async';
 export { Rest, getRestApp, startRestServer, stopRestServer } from './decorators/rest';
 export type { RestRouteOptions } from './decorators/rest';
+
+// Enterprise Decorators
+export { Lock, LockAcquisitionError, MemoryLockManager } from './decorators/lock';
+export type { LockOptions } from './decorators/lock';
+export { CircuitBreaker, CircuitBreakerOpenError, CircuitBreakerManager } from './decorators/circuit-breaker';
+export type { CircuitBreakerOptions, CircuitState } from './decorators/circuit-breaker';
+export { Idempotent, IdempotencyConflictError } from './decorators/idempotent';
+export type { IdempotentOptions } from './decorators/idempotent';
+export { Transactional, TransactionManager } from './decorators/transactional';
+export type { ITransactionProvider } from './decorators/transactional';
+export { Validate, ValidationError } from './decorators/validate';
+export type { ValidationTarget, ValidatorFunction, SchemaValidator } from './decorators/validate';
+export { Authorize, Roles, UnauthorizedError, ForbiddenError, SecurityContext } from './decorators/authorize';
+export type { AuthorizeOptions } from './decorators/authorize';
+export { Audit, AuditManager } from './decorators/audit';
+export type { AuditRecord, AuditHandler, AuditOptions } from './decorators/audit';
+export { FeatureFlag, FeatureDisabledError, FeatureFlagManager } from './decorators/feature-flag';
+export type { FeatureFlagProvider, FeatureFlagOptions } from './decorators/feature-flag';
+export { SingleFlight } from './decorators/single-flight';
+export type { SingleFlightKeyGenerator } from './decorators/single-flight';
+export { Debounce, Throttle } from './decorators/debounce';
+export type { DebounceOptions, ThrottleOptions } from './decorators/debounce';
 
 // Cache System
 export { CacheManager } from './cache/manager';
